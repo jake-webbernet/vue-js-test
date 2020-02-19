@@ -1,6 +1,5 @@
-<script src="../main.js"></script>
-<script src="../../testCompontent.js"></script>
 <script>
+    window.axios = require('axios');
     const url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR";
     module.exports = {
         data: function () {
@@ -14,8 +13,10 @@
                 console.log('Loading Results!!');
                 this.loading = true
                 axios.get(url).then(response => {
-                    this.results = response.data
-                    this.loading = false
+                    this.results = response.data;
+                    this.loading = false;
+                    console.log(this.results);
+                    console.log('Results loaded');
                 })
             }
         }
@@ -25,9 +26,11 @@
 <template>
     <div>
         <h1>Here are the results</h1>
-        <button class="btn-secondary" v-on:click="fetchShit">Load Results man!</button>
+        <button id="loadResults" class="btn-secondary" v-on:click="fetchShit">Load Results man!</button>
         <p v-if="loading">Loading!</p>
-        {{results}}
+        <div class="blah">
+            {{ results }}
+        </div>
     </div>
 </template>
 
