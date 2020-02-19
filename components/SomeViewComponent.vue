@@ -1,3 +1,4 @@
+<script src="../main.js"></script>
 <script src="../../testCompontent.js"></script>
 <script>
     const url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR";
@@ -12,7 +13,7 @@
             fetchShit() {
                 console.log('Loading Results!!');
                 this.loading = true
-                window.axios.get(url).then(response => {
+                axios.get(url).then(response => {
                     this.results = response.data
                     this.loading = false
                 })

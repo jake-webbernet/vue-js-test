@@ -33,6 +33,8 @@ By running `npm test` you will find Jest will be used to run the specs. This is 
 Probably the biggest issue I had was not using Babel in the spec transforms.  Without adding the Babel transform the jest config, as well as `plugin-transform-modules-commonjs` to the babel config, I was receiving 
   `SyntaxError: Cannot use import statement outside a module`
 
+## main.js
 
+Main js servers as the entrypoint for webpacker which actually loads Vue and attaches the components to the page.
 
 
