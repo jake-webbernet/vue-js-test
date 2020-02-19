@@ -1,8 +1,8 @@
-Vue JS Test
+# Vue JS Test
 
 I created this because I wanted to learn how to setup the most basic Vue JS implementation from compilation all the way through to testing. This Readme is going to serve as a list of the things i learned along the way.
 
-## Getting in running
+## Getting it running
 
 `$ npm install` - Install all the packages required to not only build the project but to test it.
 
