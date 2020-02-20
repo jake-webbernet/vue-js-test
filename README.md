@@ -34,7 +34,16 @@ Probably the biggest issue I had was not using Babel in the spec transforms.  Wi
   `SyntaxError: Cannot use import statement outside a module`
 
 ## main.js
-
 Main js servers as the entrypoint for webpacker which actually loads Vue and attaches the components to the page.
 
+## Dependency Injection
+The Vue component has a function prop where you can pass in a function that returns an API call. In our example, the component accepts the `src/pricesFetcher.js` file. This makes it super easy to test.
 
+## Multiple Componetns
+
+`Main.vue` loads two other components onto the page and serves as the message bus for the emitted events.
+
+1. MainVue loads `btcCounter.vue` and `pricesLoader.vue`
+2. User clicks button on `pricesLoader.vue` which fetches Crypto value from a third party and display it on the spage. It also emits `btcPrice` with a value the value of Bitcoin.
+3. MainVue detects the `btcPrice` event and, which runs `updateBtcPrice` which changes a MainVue prop that is also passed into the `btcCounter.vue` component.
+4. The `btcCounter` component renders the prop onto the page

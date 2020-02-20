@@ -1,12 +1,10 @@
 import Vue from 'vue';
-import axios from 'axios';
-import App from './components/SomeViewComponent.vue';
+import MainApp from './components/main.vue';
+const API = require('./src/pricesFetcher');
 
-console.log('Loading Vue!')
 document.addEventListener("DOMContentLoaded", function() {
-    console.log('Your document is ready!');
     new Vue({
         el: '#app',
-        render: h => h(App)
-    }).$mount('#app')
+        render: h => h(MainApp, { props: {api: API.fetchCrypto }})
+    })
 });
